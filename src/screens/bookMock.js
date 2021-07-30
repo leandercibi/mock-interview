@@ -37,14 +37,19 @@ const BookMock = (props) => {
   const { match: { params: { mentorId } } } = props;
   const user_email = localStorage.getItem('user_email');
   console.log('user_email', user_email)
-  const sendToBackend = () => {
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-    let dateString = year + "-" + month + "-" + day;
-    fetch('https://heypm-backend-demo.herokuapp.com/interviewWithMentor/generatemeetlink', {
-      method: "POST", headers: {
-        "Content-type": "application/json"
+  
+  const onSubmitForm = async (e) => {
+    e.preventDefault();
+    try {
+      setPopUp(true);
+      let day = date.getDate();
+      let month = date.getMonth() + 1;
+      let year = date.getFullYear();
+      let dateString = year + "-" + month + "-" + day;
+      let dummy = await fetch('http://127.0.0.01:8080/interviewWithMentor/generatemeetlink', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         "user_email": user_email,
@@ -52,8 +57,11 @@ const BookMock = (props) => {
         "date": dateString,
         "time": time
       })
-    })
-  }
+      })
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
 
   const onChange = (value) => {
     setDate(value);
