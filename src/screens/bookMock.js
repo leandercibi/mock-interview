@@ -143,9 +143,10 @@ const BookMock = (props) => {
           </div>
 
           <div className="p-5" >
-            <Button style={{ "text-align": "center", "minWidth": "180px" }} onClick={sendToBackend(), () => {
-              setPopUp(true)
-            }} id="btn-practice" >Schedule</Button>
+            <form onSubmit={onSubmitForm}>
+            <button style={{ "text-align": "center", "minWidth": "180px" }} 
+             id="btn-practice" >Schedule</button>
+            </form>
             <CongratsPopup
               show={popUp}
               time={time}
