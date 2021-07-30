@@ -65,6 +65,8 @@ const Signup = ({ setAuth }) => {
       if (parseRes.jwtToken) {
         localStorage.setItem("token", parseRes.jwtToken);
         setAuth(true);
+        const back=()=>history.push('/')
+        back()
         toast.success("Register Successfully");
       } else {
         setAuth(false);
