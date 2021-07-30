@@ -46,7 +46,7 @@ const BookMock = (props) => {
       let month = date.getMonth() + 1;
       let year = date.getFullYear();
       let dateString = year + "-" + month + "-" + day;
-      let dummy = await fetch('http://127.0.0.01:8080/interviewWithMentor/generatemeetlink', {
+      let dummy = await fetch('https://heypm-backend-demo.herokuapp.com/interviewWithMentor/generatemeetlink', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
