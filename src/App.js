@@ -45,7 +45,9 @@ function App(props) {
 	  		<Route
 	  			exact={true}
 	  			path="/signup"
-	  			component={Signup}
+	  			render={() => (
+					<Signup {...props} setAuth={setAuth} />
+				)}
 	  		/>
 	  		<Route
 	  			exact={true}
