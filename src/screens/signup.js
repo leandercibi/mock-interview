@@ -36,9 +36,10 @@ const Signup = ({ setAuth }) => {
   const onChange = (e) =>
     setInputs({ ...inputs, [e.target.name]: e.target.value });
 
-  const onSubmitForm = async (e) => {
+  const onSubmitForm = async e => {
     e.preventDefault();
     try {
+      console.log('entered here');
       const body = {
         name,
         email,
@@ -65,8 +66,11 @@ const Signup = ({ setAuth }) => {
       if (parseRes.jwtToken) {
         localStorage.setItem("token", parseRes.jwtToken);
         setAuth(true);
+        console.log('now here 1')
         const back=()=>history.push('/')
+        console.log('now here 2')
         back()
+        console.log('now here');
         toast.success("Register Successfully");
       } else {
         setAuth(false);
