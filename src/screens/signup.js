@@ -281,8 +281,8 @@ const Signup = ({ setAuth }) => {
             </div>
             <div className="pt-1 pl-3">
               <input type="checkbox"></input> I agree to the{" "}
-              <a href="url">Terms</a> of use and{" "}
-              <a href="url">Privacy Policy.</a>
+              <a href="/">Terms</a> of use and{" "}
+              <a href="/">Privacy Policy.</a>
             </div>
             <div className="pt-3" style={{ "text-align": "center" }}>
               <button
@@ -291,7 +291,7 @@ const Signup = ({ setAuth }) => {
               >
                 Sign Up
               </button>
-              <a className="pl-2" href="url">
+              <a className="pl-2" href="/">
                 Learn More
               </a>
             </div>
