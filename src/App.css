@@ -18,7 +18,7 @@
   margin-bottom: 30px;
 }
 .div-abc{
-  margin-left: 20p;
+  margin-left: 10%;
 }
 
 
@@ -31,6 +31,14 @@
   text-decoration-line: underline;
   font-size: 18px;
 }
+.xyz{
+  font-size: 12px;
+  text-align: left;
+  color:#6d55f1;
+}
+.btn-abc1{
+  padding-left: 10px;
+}
 
 
 /* navbar span */
@@ -42,7 +50,7 @@
 /* heading below navbar */
 .heading-starting {
   font-weight: bold;
-  font-size: 28px;
+  font-size: 20px;
   line-height: 36px;
   padding-top: 10px;
   font-family: poppins;
@@ -56,7 +64,13 @@
   color: #5A54E0;
   text-align: left;
   font-family: poppins;
-  font-size: 16px;
+  font-size: 14px;
+}
+.text-bottom{
+  vertical-align: text-top;
+}
+.text-abc{
+  color:red;
 }
 .text-1{
   padding-top: 20px;
@@ -89,7 +103,7 @@
   padding-top: 50 px;
   padding-left: 100px;
   height: 300px;
-  width: 80%;
+  width: 90%;
 }
 #testimonal-box {
   height: 150px;
@@ -322,4 +336,3 @@ body {
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: #e6e6e6;
 }
-

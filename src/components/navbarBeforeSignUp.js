@@ -59,7 +59,6 @@ function NavbarBeforeSignUp(props) {
           </Button>
           <Login
             {...props}
-            page={props.page}
             show={popUp}
             onHide={() => setPopUp(false)}
             setAuth={setAuth}

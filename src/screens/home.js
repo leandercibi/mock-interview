@@ -43,7 +43,7 @@ const Home = (props) => {
       {isAuthenticated ? (
         <NavbarBrand setAuth={setAuth} />
       ) : (
-        <NavbarBeforeSignUp page="/" />
+        <NavbarBeforeSignUp />
       )}
       {/* build actual products */}
       
@@ -51,16 +51,16 @@ const Home = (props) => {
         {/* left side */}
         <div className="col-6">
           <div className="heading-starting">
-            Prepare for your Product Manager career
+            Prepare for your Product Management career
           </div>
           <div className="text-block">
           Prepare for your Interviews and get tips from Industry's best MENTORS!
           </div>
           <div className="text-block text-1">
-          Get access to curated resources for your for your PRODUCT MANAGEMENT career.
+          Get access to curated resources for your PRODUCT MANAGEMENT career.
           </div>
           <div className="text-block text-2">
-          No session fee for the first 50 bookings.<b>Hurry Up!</b><br></br>
+          No session fee for the first 50 bookings.<b className="text-abc">Hurry Up!</b><br></br>
           Visit our 'Interview Substack' to learn from experiences.
           </div>
 
@@ -113,19 +113,23 @@ const Home = (props) => {
 
       </div>
       <div className="div-abc">
-      <div className="row container-fluid top-btn">
+      <div className="container-fluid top-btn">
       <div className="row">
-            <div className="col-3 ml-5 p-3">
+            <div className="col-3">
               <Button
                 id="btn-practice"
                 className="btn"
                 href="https://heypm.glideapp.io/"
               >
-                heyPM app
+                heyPM app  
               </Button>
-              <p className="text-block">Our app to get access to resources</p>
+              <div className="text-bottom">
+              <p className="xyz">Our app to get <br></br>
+              access to resources </p>
+              
+              </div>
             </div>
-            <div className="col-3 ml-5 p-3">
+            <div className="col-3">
               <Button
                 id="btn-practice"
                 className="btn"
@@ -133,9 +137,9 @@ const Home = (props) => {
               >
                 togetherVproduct
               </Button>
-              <p className="text-block">A podcast series for PM followers</p>
+              <p className="xyz">A podcast series for PM <br></br>followers</p>
             </div>
-            <div className="col-3 ml-5 p-3">
+            <div className="col-3">
               <Button
                 id="btn-practice"
                 className="btn"
@@ -143,7 +147,7 @@ const Home = (props) => {
               >
                 PM Resources
               </Button>
-              <p className="text-block">A repository of resources for PM</p>
+              <p className="xyz">A repository of resources<br></br> for PM</p>
             </div>
           </div>
           </div>

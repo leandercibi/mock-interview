@@ -19,7 +19,7 @@ function NavbarAfterSignUp({ setAuth }) {
     }
   };
   return (
-    <div className="container-fluid">
+    <div >
       <Navbar bg="light" expand="lg">
         <Navbar.Brand
           type="button"

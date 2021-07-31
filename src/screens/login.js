@@ -39,8 +39,12 @@ const Login = (props) => {
       if (parseRes.jwtToken) {
         localStorage.setItem("token", parseRes.jwtToken);
         localStorage.setItem("user_email", email);
+        function refreshPage(){ 
+          window.location.reload(); 
+        }
+        refreshPage();
         console.log("entered here");
-        alert("login successfully , Refresh the page!!");
+        
         props.setAuth(true);
         toast.success("Logged in Successfully");
       } else {
@@ -92,7 +96,7 @@ const Login = (props) => {
         <button
           style={{ minWidth: "190px", color: "white", padding: "6px" }}
           id="btn-practice"
-          onClick={(() => history.push(props.page), props.onHide)}
+          onClick={props.onHide}
         >
           Login
         </button>
