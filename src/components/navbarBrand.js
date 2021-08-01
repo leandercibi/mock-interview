@@ -12,6 +12,10 @@ const NavbarBrand = ({ setAuth }) => {
     try {
       localStorage.removeItem("token");
       setAuth(false);
+      function refreshPage(){ 
+        window.location.reload(); 
+      }
+      refreshPage();
       console.log("logged out");
       toast.success("Logout successfully");
     } catch (err) {
