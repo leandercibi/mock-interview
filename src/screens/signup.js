@@ -1,12 +1,25 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import logo from "../assets/navBrand.png";
-import { toast } from "react-toastify";
 import image from "../assets/signup.png";
+import useForm from "./useForms";
+import validate from "./signupFormValidations";
+
 
 const Signup = ({ setAuth }) => {
   const history = useHistory();
+  const {
+    values,
+    errors,
+    onChange,
+    onSubmitForm,
+  } = useForm(signup, validate, setAuth);
+
+  function signup() {
+    console.log('No errors, submit callback called!');
+  }
+
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
@@ -32,54 +45,6 @@ const Signup = ({ setAuth }) => {
     password,
     retype_password,
   } = inputs;
-
-  const onChange = (e) =>
-    setInputs({ ...inputs, [e.target.name]: e.target.value });
-
-  const onSubmitForm = async e => {
-    e.preventDefault();
-    try {
-      console.log('entered here');
-      const body = {
-        name,
-        email,
-        educational_qualification,
-        curr_designation,
-        curr_organisation,
-        domain,
-        skills,
-        experience,
-        password,
-      };
-      const response = await fetch(
-        "https://heypm-backend-demo.herokuapp.com/authentication/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify(body),
-        }
-      );
-      const parseRes = await response.json();
-
-      if (parseRes.jwtToken) {
-        localStorage.setItem("token", parseRes.jwtToken);
-        setAuth(true);
-        console.log('now here 1')
-        const back=()=>history.push('/')
-        console.log('now here 2')
-        back()
-        console.log('now here');
-        toast.success("Register Successfully");
-      } else {
-        setAuth(false);
-        toast.error(parseRes);
-      }
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
 
   return (
     <div className="p-3">
@@ -121,161 +86,166 @@ const Signup = ({ setAuth }) => {
         >
           <form onSubmit={onSubmitForm}>
             <div className="row">
-              <div className="col-6">
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="name" className="pr-4">
+              <div className="col">
+                 
+                <div style={{ "text-align": "left" }} className="p-1">
+                <label for="name" className="pr-4">
                     *Name:
                   </label>
-                </div>
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="email" className="pr-4">
-                    *Email:
-                  </label>
-                </div>
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="Education" className="pr-4">
-                    *Education Qualification:
-                  </label>
-                </div>
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="Designation" className="pr-4">
-                    *Current Designation:
-                  </label>
-                </div>
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="Organization" className="pr-4">
-                    *Current Organization:
-                  </label>
-                </div>
-
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="Domain" className="pr-4">
-                    Domain:
-                  </label>
-                </div>
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="Skills" className="pr-4">
-                    Skills:
-                  </label>
-                </div>
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="Experience" className="pr-4">
-                    *Total Experience:
-                  </label>
-                </div>
-
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="Password" className="pr-4">
-                    *Password:
-                  </label>
-                </div>
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="Retype Password" className="pr-4">
-                    *Retype Password:
-                  </label>
-                </div>
-              </div>
-
-              <div className="col-6">
-                <div style={{ "text-align": "left" }} className="p-1">
                   <input
                     style={{ paddingTop: "3px" }}
                     type="text"
                     name="name"
-                    value={name}
+                    value={values.name}
                     placeholder="Name"
                     onChange={(e) => onChange(e)}
+                    required
                   />
                 </div>
+                  
                 <div style={{ "text-align": "left" }} className="p-1">
+                <label for="email" className="pr-4">
+                    *Email:
+                  </label>
                   <input
                     style={{ paddingTop: "3px" }}
+                    className={`input ${errors.email && 'is-danger'}`}
                     type="text"
                     name="email"
-                    value={email}
+                    value={values.email}
                     placeholder="email"
                     onChange={(e) => onChange(e)}
+                    required
                   />
+                   {errors.email && (
+                    <p id= "errormsg">{errors.email}</p>
+                  )}
                 </div>
+                  
                 <div style={{ "text-align": "left" }} className="p-1">
+                <label for="Education" className="pr-4">
+                    *Education_Qualification:
+                  </label>
                   <input
                     style={{ paddingTop: "3px" }}
                     type="text"
                     name="educational_qualification"
-                    value={educational_qualification}
+                    value={values.educational_qualification}
                     placeholder="e.g : M.Tech, B.Tech"
                     onChange={(e) => onChange(e)}
+                    required
                   />
                 </div>
+                  
                 <div style={{ "text-align": "left" }} className="p-1">
+                <label for="Designation" className="pr-4">
+                    *Current_Designation:
+                  </label>
                   <input
                     style={{ paddingTop: "3px" }}
                     type="text"
                     name="curr_designation"
-                    value={curr_designation}
+                    value={values.curr_designation}
                     placeholder="e.g : Developer"
                     onChange={(e) => onChange(e)}
+                    required
                   />
                 </div>
+                
                 <div style={{ "text-align": "left" }} className="p-1">
+                <label for="Organization" className="pr-4">
+                    *Current_Organization:
+                  </label>
                   <input
                     style={{ paddingTop: "3px" }}
                     type="text"
                     name="curr_organisation"
-                    value={curr_organisation}
+                    value={values.curr_organisation}
                     placeholder="e.g : Google, amazon"
                     onChange={(e) => onChange(e)}
+                    required
                   />
                 </div>
+               
                 <div style={{ "text-align": "left" }} className="p-1">
+                <label for="Domain" className="pr-4">
+                    Domain:
+                  </label>
                   <input
                     style={{ paddingTop: "3px" }}
                     type="text"
                     name="domain"
-                    value={domain}
+                    value={values.domain}
                     placeholder="e.g: Development. Database"
                     onChange={(e) => onChange(e)}
                   />
                 </div>
+                
                 <div style={{ "text-align": "left" }} className="p-1">
+                <label for="Skills" className="pr-4">
+                    Skills:
+                  </label>
                   <input
                     type="text"
                     name="skills"
                     style={{ paddingTop: "3px" }}
-                    value={skills}
+                    value={values.skills}
                     placeholder="e.g: Javascript, React"
                     onChange={(e) => onChange(e)}
                   />
                 </div>
+                
                 <div style={{ "text-align": "left" }} className="p-1">
+                <label for="Experience" className="pr-4">
+                    *Total Experience:
+                  </label>
                   <input
                     type="text"
                     name="experience"
                     style={{ paddingTop: "3px" }}
-                    value={experience}
+                    value={values.experience}
                     placeholder="e.g: 1, 3 ,10"
                     onChange={(e) => onChange(e)}
+                    required
                   />
                 </div>
-                <div style={{ "text-align": "left" }} className="p-1">
+                
+                <div style={{ "text-align": "left" }} className="p-1 wrap-input100 validate-input" data-validate = "password is required">
+                <label for="Password" className="pr-4">
+                    *Password:
+                  </label>
                   <input
                     type="password"
                     name="password"
+                    className={`input ${errors.password && 'is-danger'}`}
                     style={{ paddingTop: "3px" }}
-                    value={password}
+                    value={values.password}
                     placeholder="password"
                     onChange={(e) => onChange(e)}
+                    required
                   />
+                  {errors.password && (
+                  <p id="errormsg" >{errors.password}</p>
+                )}
                 </div>
-                <div style={{ "text-align": "left" }} className="p-1">
+                
+                <div style={{ "text-align": "left" }} className="p-1" data-validate= "re-type password is required">
+                <label for="Retype Password" className="pr-4">
+                    *Retype Password:
+                  </label>
                   <input
                     type="password"
                     name="retype_password"
                     style={{ paddingTop: "3px" }}
-                    value={retype_password}
+                    value={values.retype_password}
                     placeholder="retype password"
                     onChange={(e) => onChange(e)}
+                    required
                   />
+                  { errors.retype_password  && (
+                  <p id="errormsg">{ errors.retype_password }</p>
+                )}
+                 
                 </div>
               </div>
             </div>
