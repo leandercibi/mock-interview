@@ -51,6 +51,7 @@ const Signup = ({ setAuth }) => {
         experience,
         password,
       };
+      console.log(body);
       const response = await fetch(
         "https://heypm-backend-demo.herokuapp.com/authentication/register",
         {
@@ -120,64 +121,12 @@ const Signup = ({ setAuth }) => {
           }}
         >
           <form onSubmit={onSubmitForm}>
-            <div className="row">
-              <div className="col-6">
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="name" className="pr-4">
+          <div className="row ml-auto">
+              <div className="col ">
+                <div style={{ "text-align": "center" }} >
+                <label for="name" className="pr-4">
                     *Name:
                   </label>
-                </div>
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="email" className="pr-4">
-                    *Email:
-                  </label>
-                </div>
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="Education" className="pr-4">
-                    *Education Qualification:
-                  </label>
-                </div>
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="Designation" className="pr-4">
-                    *Current Designation:
-                  </label>
-                </div>
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="Organization" className="pr-4">
-                    *Current Organization:
-                  </label>
-                </div>
-
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="Domain" className="pr-4">
-                    Domain:
-                  </label>
-                </div>
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="Skills" className="pr-4">
-                    Skills:
-                  </label>
-                </div>
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="Experience" className="pr-4">
-                    *Total Experience:
-                  </label>
-                </div>
-
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="Password" className="pr-4">
-                    *Password:
-                  </label>
-                </div>
-                <div style={{ "text-align": "right" }} className="p-1">
-                  <label for="Retype Password" className="pr-4">
-                    *Retype Password:
-                  </label>
-                </div>
-              </div>
-
-              <div className="col-6">
-                <div style={{ "text-align": "left" }} className="p-1">
                   <input
                     style={{ paddingTop: "3px" }}
                     type="text"
@@ -185,9 +134,14 @@ const Signup = ({ setAuth }) => {
                     value={name}
                     placeholder="Name"
                     onChange={(e) => onChange(e)}
+                    required
                   />
                 </div>
-                <div style={{ "text-align": "left" }} className="p-1">
+                  
+                <div style={{ "text-align": "center" }} className="p-1">
+                <label for="email" className="pr-4">
+                    *Email:
+                  </label>
                   <input
                     style={{ paddingTop: "3px" }}
                     type="text"
@@ -195,9 +149,17 @@ const Signup = ({ setAuth }) => {
                     value={email}
                     placeholder="email"
                     onChange={(e) => onChange(e)}
+                    required
                   />
+                  {
+                    (!email || (!/\S+@\S+\.\S+/.test(email)))?<p id= "errormsg">Enter valid email address</p>:null
+                  }
                 </div>
-                <div style={{ "text-align": "left" }} className="p-1">
+                  
+                <div style={{ "text-align": "center" }} className="p-1">
+                <label for="Education" className="pr-4">
+                    *Education_Qualification:
+                  </label>
                   <input
                     style={{ paddingTop: "3px" }}
                     type="text"
@@ -205,9 +167,14 @@ const Signup = ({ setAuth }) => {
                     value={educational_qualification}
                     placeholder="e.g : M.Tech, B.Tech"
                     onChange={(e) => onChange(e)}
+                    required
                   />
                 </div>
-                <div style={{ "text-align": "left" }} className="p-1">
+                  
+                <div style={{ "text-align": "center" }} className="p-1">
+                <label for="Designation" className="pr-4">
+                    *Current_Designation:
+                  </label>
                   <input
                     style={{ paddingTop: "3px" }}
                     type="text"
@@ -215,9 +182,14 @@ const Signup = ({ setAuth }) => {
                     value={curr_designation}
                     placeholder="e.g : Developer"
                     onChange={(e) => onChange(e)}
+                    required
                   />
                 </div>
-                <div style={{ "text-align": "left" }} className="p-1">
+                
+                <div style={{ "text-align": "center" }} className="p-1">
+                <label for="Organization" className="pr-4">
+                    *Current_Organization:
+                  </label>
                   <input
                     style={{ paddingTop: "3px" }}
                     type="text"
@@ -225,19 +197,28 @@ const Signup = ({ setAuth }) => {
                     value={curr_organisation}
                     placeholder="e.g : Google, amazon"
                     onChange={(e) => onChange(e)}
+                    required
                   />
                 </div>
-                <div style={{ "text-align": "left" }} className="p-1">
+               
+                <div style={{ "text-align": "center" }} className="p-1">
+                <label for="Domain" className="pr-4">
+                    Domain:
+                  </label>
                   <input
                     style={{ paddingTop: "3px" }}
                     type="text"
                     name="domain"
                     value={domain}
-                    placeholder="e.g: Development. Database"
+                    placeholder="e.g: Growth, Technical, UI/UX.."
                     onChange={(e) => onChange(e)}
                   />
                 </div>
-                <div style={{ "text-align": "left" }} className="p-1">
+                
+                <div style={{ "text-align": "center" }} className="p-1">
+                <label for="Skills" className="pr-4">
+                    Skills:
+                  </label>
                   <input
                     type="text"
                     name="skills"
@@ -247,7 +228,11 @@ const Signup = ({ setAuth }) => {
                     onChange={(e) => onChange(e)}
                   />
                 </div>
-                <div style={{ "text-align": "left" }} className="p-1">
+                
+                <div style={{ "text-align": "center" }} className="p-1">
+                <label for="Experience" className="pr-4">
+                    *Total Experience(Years):
+                  </label>
                   <input
                     type="text"
                     name="experience"
@@ -255,9 +240,14 @@ const Signup = ({ setAuth }) => {
                     value={experience}
                     placeholder="e.g: 1, 3 ,10"
                     onChange={(e) => onChange(e)}
+                    required
                   />
                 </div>
-                <div style={{ "text-align": "left" }} className="p-1">
+                
+                <div style={{ "text-align": "center" }} className="p-1 wrap-input100 validate-input" data-validate = "password is required">
+                <label for="Password" className="pr-4">
+                    *Password:
+                  </label>
                   <input
                     type="password"
                     name="password"
@@ -265,9 +255,17 @@ const Signup = ({ setAuth }) => {
                     value={password}
                     placeholder="password"
                     onChange={(e) => onChange(e)}
+                    required
                   />
+                 {
+                    (password.length < 8)?<p id= "errormsg">Password must be 8 or more characters</p>:null
+                  }
                 </div>
-                <div style={{ "text-align": "left" }} className="p-1">
+                
+                <div style={{ "text-align": "center" }} className="p-1" data-validate= "re-type password is required">
+                <label for="Retype Password" className="pr-4">
+                    *Retype Password:
+                  </label>
                   <input
                     type="password"
                     name="retype_password"
@@ -275,7 +273,11 @@ const Signup = ({ setAuth }) => {
                     value={retype_password}
                     placeholder="retype password"
                     onChange={(e) => onChange(e)}
+                    required
                   />
+                 {
+                    ( password!=retype_password)?<p id= "errormsg">password do not match</p>:null
+                  }
                 </div>
               </div>
             </div>
