@@ -6,6 +6,11 @@ import { toast } from "react-toastify";
 import image from "../assets/signup.png";
 
 const Signup = ({ setAuth }) => {
+  let emailValid = false;
+  let passValid = false;
+  let rePassValid = false;
+
+
   const history = useHistory();
   const [inputs, setInputs] = useState({
     name: "",
@@ -152,7 +157,7 @@ const Signup = ({ setAuth }) => {
                     required
                   />
                   {
-                    (!email || (!/\S+@\S+\.\S+/.test(email)))?<p id= "errormsg">Enter valid email address</p>:null
+                    (!email || (!/\S+@\S+\.\S+/.test(email)))?<p id= "errormsg">Enter valid email address</p>:emailValid=true
                   }
                 </div>
                   
@@ -258,7 +263,7 @@ const Signup = ({ setAuth }) => {
                     required
                   />
                  {
-                    (password.length < 8)?<p id= "errormsg">Password must be 8 or more characters</p>:null
+                    (password.length < 8)?<p id= "errormsg">Password must be 8 or more characters</p>:passValid= true
                   }
                 </div>
                 
@@ -276,7 +281,7 @@ const Signup = ({ setAuth }) => {
                     required
                   />
                  {
-                    ( password!=retype_password)?<p id= "errormsg">password do not match</p>:null
+                    ( password!=retype_password)?<p id= "errormsg">password do not match</p>:rePassValid=true
                   }
                 </div>
               </div>
@@ -287,9 +292,11 @@ const Signup = ({ setAuth }) => {
               <a href="/">Privacy Policy.</a>
             </div>
             <div className="pt-3" style={{ "text-align": "center" }}>
+            {console.log( emailValid+ "e "+ passValid+ "r "+ rePassValid)}
               <button
                 style={{ minWidth: "190px", color: "white", padding: "6px" }}
                 id="btn-practice"
+                disabled={(emailValid && passValid && rePassValid)?false:true}
               >
                 Sign Up
               </button>
