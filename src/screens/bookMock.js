@@ -26,10 +26,18 @@ const BookMock = (props) => {
   }, []);
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isTimingSelected, setIsTiming] = useState(true);
   console.log('till here');
   const setAuth = boolean => {
     setIsAuthenticated(boolean);
   };
+
+  const setTiming = boolean => {
+    console.log('fdhdsssahhhhhhhgdsg')
+    setIsTiming(boolean);
+  };
+
+  
   const [popUp, setPopUp] = React.useState(false);
   const [date, setDate] = React.useState(new Date());
   const [time, setTime] = React.useState();
@@ -38,6 +46,8 @@ const BookMock = (props) => {
   const user_email = localStorage.getItem('user_email');
   console.log('user_email', user_email)
   
+  
+
   const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
@@ -68,6 +78,7 @@ const BookMock = (props) => {
     let day = value.getDate();
     let month = value.getMonth() + 1;
     let year = value.getFullYear();
+    setTiming(true)
     let dateString = year + "-" + month + "-" + day;
     fetch('https://heypm-backend-demo.herokuapp.com/interviewWithMentor/get_timing', {
       method: "POST", headers: {
@@ -132,7 +143,7 @@ const BookMock = (props) => {
             <div className="row pt-1 pl-2 pb-2 pr-2">
               {(Object.keys(slots).length > 0) ? Object.keys(slots).map(each => {
                 if (slots[each]) {
-                  return <div className="col" style={{ "textAlign": "center" }} ><Button id="btn-outline" onClick={() => { setTime(slots[each]) }} className="btn m-2 primary bg-light pt-0 pb-0" >{slots[each]}</Button></div>
+                  return <div className="col" style={{ "textAlign": "center" }} ><Button id="btn-outline" onClick={() => { setTime(slots[each]); setTiming(false) }} className="btn m-2 primary bg-light pt-0 pb-0" >{slots[each]}</Button></div>
                 } else {
                   return <React.Fragment></React.Fragment>
                 }
@@ -144,7 +155,7 @@ const BookMock = (props) => {
 
           <div className="p-5" >
             <form onSubmit={onSubmitForm}>
-            <button style={{ "text-align": "center", "minWidth": "180px" }} 
+            <button disabled = {isTimingSelected} style={{ "text-align": "center", "minWidth": "180px" }} 
              id="btn-practice" >Schedule</button>
             </form>
             <CongratsPopup
