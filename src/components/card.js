@@ -14,7 +14,7 @@ const Card = (props) => {
           id="card"
           key={props.id}
           className=""
-          style={{ paddingLeft: "20%" }}
+          style={{ paddingLeft: "20%" , paddingBottom:"5px", paddingTop:"1px"}}
         >
           <div className="p-1">
             {/* image */}

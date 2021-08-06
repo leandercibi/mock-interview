@@ -170,7 +170,7 @@ const Signup = ({ setAuth }) => {
                     type="text"
                     name="educational_qualification"
                     value={educational_qualification}
-                    placeholder="e.g : M.Tech, B.Tech"
+                    placeholder="e.g., M.Tech, B.Tech"
                     onChange={(e) => onChange(e)}
                     required
                   />
@@ -185,7 +185,7 @@ const Signup = ({ setAuth }) => {
                     type="text"
                     name="curr_designation"
                     value={curr_designation}
-                    placeholder="e.g : Developer"
+                    placeholder="e.g., Developer"
                     onChange={(e) => onChange(e)}
                     required
                   />
@@ -200,7 +200,7 @@ const Signup = ({ setAuth }) => {
                     type="text"
                     name="curr_organisation"
                     value={curr_organisation}
-                    placeholder="e.g : Google, amazon"
+                    placeholder="e.g., Google, Amazon"
                     onChange={(e) => onChange(e)}
                     required
                   />
@@ -215,7 +215,7 @@ const Signup = ({ setAuth }) => {
                     type="text"
                     name="domain"
                     value={domain}
-                    placeholder="e.g: Growth, Technical, UI/UX.."
+                    placeholder="e.g., Growth, Technical, UI/UX.."
                     onChange={(e) => onChange(e)}
                   />
                 </div>
@@ -229,7 +229,7 @@ const Signup = ({ setAuth }) => {
                     name="skills"
                     style={{ paddingTop: "3px" }}
                     value={skills}
-                    placeholder="e.g: Javascript, React"
+                    placeholder="e.g., Javascript, React"
                     onChange={(e) => onChange(e)}
                   />
                 </div>
@@ -243,7 +243,7 @@ const Signup = ({ setAuth }) => {
                     name="experience"
                     style={{ paddingTop: "3px" }}
                     value={experience}
-                    placeholder="e.g: 1, 3 ,10"
+                    placeholder="e.g., 1, 3 ,10"
                     onChange={(e) => onChange(e)}
                     required
                   />

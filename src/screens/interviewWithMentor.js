@@ -155,7 +155,7 @@ const InterviewWithMentor = (props) => {
           </div>
         </div>
         {filterdMentorList && filterdMentorList.length > 0 ? (
-          <div className="col-10 ">
+          <div className="col-10">
             <div className="row m-1">
               {filterdMentorList.map((details) => (
                 <Card

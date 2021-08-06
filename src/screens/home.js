@@ -6,6 +6,7 @@ import Testimonials from "../components/testimonials";
 import { useHistory } from "react-router-dom";
 import NavbarAfterSignUp from "../components/navbarAfterSignUp";
 import image from "../assets/home.png";
+import Footer from "../components/footer";
 
 const Home = (props) => {
   console.log("entered home");
@@ -39,9 +40,10 @@ const Home = (props) => {
   };
 
   return (
-    <div className="p-4" id="home">
+    <div  id="home">
+    <div className="p-4">
       {isAuthenticated ? (
-        <NavbarBrand setAuth={setAuth} />
+        <NavbarAfterSignUp setAuth={setAuth} />
       ) : (
         <NavbarBeforeSignUp />
       )}
@@ -54,21 +56,18 @@ const Home = (props) => {
             Prepare for your Product Management career
           </div>
           <div className="text-block">
-          Prepare for your Interviews and get tips from Industry's best MENTORS!
+          Practice with our MENTORS for your next PM interview! Learn from interview stories and our curated resources.
           </div>
           <div className="text-block text-1">
-          Get access to curated resources for your PRODUCT MANAGEMENT career.
+          Learn, Inspire and Grow. Let's get started!
           </div>
-          <div className="text-block text-2">
-          No session fee for the first 50 bookings.<b className="text-abc">Hurry Up!</b><br></br>
-          Visit our 'Interview Substack' to learn from experiences.
-          </div>
-
-          <div className="row">
-            <div className="col-3 ml-5 p-3">
+          
+          <div className="row container-fluid">
+            <div className="col-3 ml-2 mr-2 p-3">
               <Button
                 id="btn-practice"
                 className="btn"
+                
                 onClick={() => history.push("/interviewWithMentor")}
               >
                 Practice Ground
@@ -93,65 +92,8 @@ const Home = (props) => {
       {/* testimonals */}
       <Testimonials />
       {/* links */}
-      <div className="row pl-3 abc-1">
-        <div className="col-4 abc-2">
-          <a
-            target="_blank"
-            href="https://docs.google.com/forms/d/e/1FAIpQLScHw7xfAeZ3kiCocbeIU4vhMHrbPCWFp5lDiEegFOxCpg0USQ/viewform"
-          >
-            Become a Mentor
-          </a>
-        </div>
-        <div className="col-4 abc-2">
-          <a
-            target="_blank"
-            href="https://heypm-interview-experience.webflow.io/share-your-interview"
-          >
-            Submit Your Interview Experience
-          </a>
-        </div>
-
       </div>
-      <div className="div-abc">
-      <div className="container-fluid top-btn">
-      <div className="row">
-            <div className="col-3">
-              <Button
-                id="btn-practice"
-                className="btn"
-                href="https://heypm.glideapp.io/"
-              >
-                heyPM app  
-              </Button>
-              <div className="text-bottom">
-              <p className="xyz">Our app to get <br></br>
-              access to resources </p>
-              
-              </div>
-            </div>
-            <div className="col-3">
-              <Button
-                id="btn-practice"
-                className="btn"
-                href="https://anchor.fm/heypm"
-              >
-                togetherVproduct
-              </Button>
-              <p className="xyz">A podcast series for PM <br></br>followers</p>
-            </div>
-            <div className="col-3">
-              <Button
-                id="btn-practice"
-                className="btn"
-                href="https://heypm.substack.com/pm-resources"
-              >
-                PM Resources
-              </Button>
-              <p className="xyz">A repository of resources<br></br> for PM</p>
-            </div>
-          </div>
-          </div>
-      </div>
+      <Footer/>
     </div>
     
   );

@@ -24,32 +24,59 @@ label{
   margin-left: 200px;
   color:red;
 }
-.top-btn{
-  margin-bottom: 30px;
-}
-.div-abc{
-  margin-left: 10%;
-}
 
-
-/*bottom buttons*/
-.abc-1{
-  padding-top: 30px;
+/* footer */
+.footer{
+  background-color: #6d55f1;
+  color: white;
+  padding: 8px;
 }
-.abc-2{
-  margin-left: 100px;
-  text-decoration-line: underline;
-  font-size: 18px;
-}
-.xyz{
+  
+#anchor{
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 12px;
-  text-align: left;
-  color:#6d55f1;
-}
-.btn-abc1{
-  padding-left: 10px;
+  text-decoration-line: underline;
 }
 
+.border{
+    height: 120px;
+    border-right: solid white 2px ;
+    background-color: #ffffff;  
+}
+.border:last-child {
+  border: 0px;
+}
+
+#footer-1st-link{
+  text-align: left;
+}
+.colums{
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 2%;
+  text-align: center;
+  width:24%;
+}
+strong{
+  color: rgb(35, 235, 35);
+}
+
+#footer-links{
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration-line: underline;
+}
+
+.footer-text{
+  font-size: 12px;
+  padding-top: 10px;
+}
 
 /* navbar span */
 .span {
@@ -70,25 +97,22 @@ label{
 }
 
 .text-block {
+  padding-top: 10px;
   padding-bottom: 10px;
-  color: #5A54E0;
   text-align: left;
   font-family: poppins;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight:600;
 }
 .text-bottom{
   vertical-align: text-top;
 }
-.text-abc{
-  color:red;
-}
+
 .text-1{
   padding-top: 20px;
   padding-bottom: 20px;
 }
-.text-2{
-  padding-bottom: 20px;
-}
+
 #interview-with-mentor,
 #book-interview,
 #home {
@@ -105,6 +129,7 @@ label{
 
 .testimonals {
   padding-top: 40px;
+  margin-bottom: 20px;
   height: 300px;
   /*background: rgba(6, 204, 171, 0.37);*/
   border-radius: 10px;
