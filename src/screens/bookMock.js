@@ -155,7 +155,7 @@ const BookMock = (props) => {
 
           <div className="p-5" >
             <form onSubmit={onSubmitForm}>
-            <button disabled = {isTimingSelected} style={{ "text-align": "center", "minWidth": "180px" }} 
+            <button disabled = {isTimingSelected} style={{ "text-align": "center", "minWidth": "200px" , "color":"white" }} 
              id="btn-practice" >Schedule</button>
             </form>
             <CongratsPopup
