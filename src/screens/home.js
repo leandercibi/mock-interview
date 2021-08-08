@@ -43,7 +43,7 @@ const Home = (props) => {
     <div  id="home">
     <div className="p-4">
       {isAuthenticated ? (
-        <NavbarAfterSignUp setAuth={setAuth} />
+        <NavbarBrand setAuth={setAuth} />
       ) : (
         <NavbarBeforeSignUp />
       )}
